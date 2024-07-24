@@ -73,7 +73,7 @@ class Bot
         $this->http->post('sendMessage', [
             'form_params' => [
                 'chat_id' => $chatId,
-                'text'    => 'Task added successfully',
+                'text'    => 'Malumotiz saqlandi.......',
             ]
         ]);
     }

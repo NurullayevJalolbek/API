@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 //require "src/Task.php";
-$task     = new Task(); 
+$task     = new Task();
 $todoList = $task->getAll();
 ?>
 
@@ -13,6 +13,7 @@ $todoList = $task->getAll();
         $strike  = $task['status'] ? ' text-decoration-line-through' : '';
         $action  = $task['status'] ? 'uncompleted' : 'complete';
         echo "<div class='d-flex list-group-item'>";
+        echo "          {$task['id']}";
         echo "    <a href='?$action={$task['id']}' class='w-100 text-decoration-none text-dark'>";
         echo "        <input class='form-check-input me-1' type='checkbox' id='task-{$task['id']}' $checked>";
         echo "        <label class='form-check-label $strike' for='task-{$task['id']}'>{$task['text']}</label>";

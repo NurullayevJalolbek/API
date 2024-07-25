@@ -20,6 +20,14 @@ class Task
         $stmt->bindParam(':userId', $userId);
         return $stmt->execute();
     }
+    public function add2(string $text)
+    {
+        $status = false;
+        $stmt   = $this->pdo->prepare("INSERT INTO todo_app (text, status) VALUES (:text, :status)");
+        $stmt->bindParam(':text', $text);
+        $stmt->bindParam(':status', $status, PDO::PARAM_BOOL);
+        return $stmt->execute();
+    }
 
     public function getAll(): false|array
     {

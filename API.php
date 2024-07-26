@@ -1,28 +1,19 @@
 <?php
-
-
-$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
-
-if (strpos($path, '/add') !== false) {
-    if (isset($update->text) && isset($update->userId)) {
-        $task->add($update->text, $update->userId);
-    }
+$path  = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+$path = explode('/', $path);
+if (array_search('add', $path) == true) {
+    $task->add($update->text, $update->userId);
 }
-if (strpos($path, '/all') !== false) {
-    $task->getAll();
+if (array_search('all', $path) == true) {
+    echo "<pre>";
+    print_r($task->getAll());
+    echo "</pre>";
 }
-if (strpos($path, '/delete') !== false) {
-    if (isset($update->task_id)) {
-        $task->delete($update->task_id);
-    }
+if (array_search('delete', $path)) {
+    $task->delete($update->task_id);
 }
-if (strpos($path, '/complete') !== false) {
-    if (isset($update->task_id)) {
-        $task->complete($update->task_id);
-    }
-}
-if (strpos($path, '/uncompleted') !== false) {
-    if (isset($update->task_id)) {
-        $task->uncompleted($update->task_id);
-    }
+if (array_search('complete', $path)) {
+    $task->complete($update->task_id);
+} elseif (array_search('uncompleted', $path)) {
+    $task->uncompleted($update->task_id);
 }

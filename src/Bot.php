@@ -95,7 +95,7 @@ class Bot
         $this->http->post('sendMessage', [
             'form_params' => [
                 'chat_id'      => $chatId,
-                'text'         => $this->prepareTexts($tasks),
+                'text'         => "Your tasks:\n\n" . $this->prepareTexts($tasks),
                 'reply_markup' => $this->prepareButtons(
                     $tasks,
                     [['text' => 'Delete', 'callback_data' => 'delete_task']]

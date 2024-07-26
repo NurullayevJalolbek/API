@@ -37,7 +37,7 @@ if (isset($update->callback_query)) {
         $bot->handleDeleteCommand($chatId);
         return;
     }
-    if ($user->getUserInfo($chatId)->status == 'delete') {
+    if ($user->getUserInfo($chatId)->status = 'delete') {
         $bot->handleDeleteTask($chatId, (int)$callbackData);
         $user->setStatus($chatId, '');
         return;

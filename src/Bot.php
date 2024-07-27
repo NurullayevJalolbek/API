@@ -7,14 +7,15 @@ use src\User;
 require "src/User.php";
 class Bot
 {
-    const string TOKEN = "7279583274:AAFi8wAbq7WtquAV-ECXTdi6j7kMwC5XXts";
-    const string API   = "https://api.telegram.org/bot" . self::TOKEN . "/";
+    private string $TOKEN;
+    public string $API   = "https://api.telegram.org/bot";
     public Client $http;
     private PDO   $pdo;
 
-    public function __construct()
+    public function __construct($token)
     {
-        $this->http = new Client(['base_uri' => self::API]);
+        $this -> TOKEN = $token;
+        $this->http = new Client(['base_uri' => $this->API . $this->TOKEN . "/"]);
         $this->pdo  = DB::connect();
     }
 

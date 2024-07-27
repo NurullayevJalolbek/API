@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 require "src/Bot.php";
-$bot = new Bot();
+$bot = new Bot($_ENV['TOKEN']);
 
 if (isset($update->message)) {
     $message = $update->message;

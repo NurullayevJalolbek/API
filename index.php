@@ -1,7 +1,12 @@
 <?php
 
 require_once "vendor/autoload.php";
-require "src/Task.php";
+
+
+use Dotenv\Dotenv;
+
+$dotenv = Dotenv::createImmutable(__DIR__);
+$dotenv->load();
 
 date_default_timezone_set('Asia/Tashkent');
 

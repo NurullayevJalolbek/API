@@ -32,25 +32,6 @@ Yet another Todo app. This application allows users to manage their tasks effici
     mysqldump -u root -p TODO_LIST < dump.sql
     ```
 
-4. Configure the database connection in `src/DB.php`:
-
-    ```php
-    <?php
-    // src/DB.php
-
-    define('DB_SERVER', 'localhost');
-    define('DB_USERNAME', 'root');
-    define('DB_PASSWORD', '');
-    define('DB_NAME', '');
-
-    $link = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
-
-    if($link === false){
-        die("ERROR: Could not connect. " . mysqli_connect_error());
-    }
-    ?>
-    ```
-
 ## Usage
 
 ### Web Interface
